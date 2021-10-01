@@ -9,7 +9,7 @@ class Amount {
 
   factory Amount.fromJson(Map<String, dynamic> json) {
     return Amount(
-        value: json['value'].toDouble(),
+        value: double.parse('${json['value']}'),
         unit: json['unit']
     );
   }

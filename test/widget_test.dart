@@ -9,22 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:beer_app/Scenes/BeerList/BeerListWidget.dart';
+import 'package:beer_app/Data/Amount.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(BeerListWidget());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('Decrypt Amount', () async {
+    final json = {
+      'value': 200,
+      'unit': 'mL',
+    };
+    final amount = Amount.fromJson(json);
+    expect(amount.unit, 'mL');
+    expect(amount.value, 200.0);
   });
 }
