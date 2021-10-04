@@ -51,8 +51,9 @@ jobs:
           echo "$FILE does not exist."
         fi
     - name: cd
-      run: |
-        cd build/ios/iphoneos/ && ls
+      run: cd build/ios/iphoneos/
+    - name: print
+      run: ls
     - name: Upload IPA
       uses: wzieba/Firebase-Distribution-Github-Action@v1.0.0
       with:
