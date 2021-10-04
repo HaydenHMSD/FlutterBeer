@@ -50,7 +50,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: ios-build
-        path: build/ios/iphoneos
+        path: build/ios/archive
   beta_ios:
     name: Upload iOS Beta to Firebase App Distribution
     needs: [build_ios]
@@ -65,7 +65,7 @@ jobs:
       uses: actions/download-artifact@master
       with:
         name: ios-build
-        path: build/ios/iphoneos
+        path: build/ios/archive
     - name: print list
       run: ls
     - name: print current dir
