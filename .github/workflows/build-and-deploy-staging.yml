@@ -42,6 +42,14 @@ jobs:
       run: ls
     - name: print current dir
       run: echo $PWD
+    - name: check file exists
+      run: |
+        FILE=build/ios/iphoneos/Runner.ipa
+        if [ -f "$FILE" ]; then
+          echo "$FILE exists."
+        else 
+          echo "$FILE does not exist."
+        fi
     - name: Upload IPA
       uses: wzieba/Firebase-Distribution-Github-Action@v1.0.0
       with:
