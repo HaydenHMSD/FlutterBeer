@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>20214410798-2pup3lnll2l94c4gbq4nj3tdcv0u1rfh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.20214410798-2pup3lnll2l94c4gbq4nj3tdcv0u1rfh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDltYbb3oxqRcyEvdbxWmNY2oqn-G5fN3U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>20214410798</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.himumsaiddad.flutterbeer</string>
+	<key>PROJECT_ID</key>
+	<string>flutterbeer-58b44</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutterbeer-58b44.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:20214410798:ios:36766a4bccd73a871bf9bf</string>
+</dict>
+</plist>
