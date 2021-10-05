@@ -6,5 +6,10 @@
   <string>ad-hoc</string>
   <key>teamID</key>
     <string>Q5SWPQD6K4</string>
+  <key>provisioningProfiles</key>
+  <dict>
+    <key>com.himumsaiddad.flutterbeer</key>
+    <string>FlutterBeer Distribution</string>
+  </dict>
 </dict>
 </plist>
