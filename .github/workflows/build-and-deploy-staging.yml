@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: ios-build
-        path: build/ios/archive
+        path: build/ios
   beta_ios:
     name: Upload iOS Beta to Firebase App Distribution
     needs: [build_ios]
@@ -85,4 +85,4 @@ jobs:
         appId: ${{secrets.FIREBASE_IOS_APPID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: testers
-        file: build/ios/archive/Runner.ipa
+        file: build/ios/Runner.ipa
