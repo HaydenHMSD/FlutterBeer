@@ -46,7 +46,7 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: ls
-    - run: flutter build ipa --release --export-options-plist=.github/export_options.plist
+    - run: flutter build ipa --release --export-options-plist=ios/export_options.plist
     - name: Upload iPA
       uses: actions/upload-artifact@master
       with:
