@@ -46,6 +46,12 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: ls
+    - name: print directory
+      run: |
+        for entry in "ios"/*
+        do
+          echo "$entry"
+        done
     - run: flutter build ipa --release --export-options-plist=ios/export_options.plist
     - name: Upload iPA
       uses: actions/upload-artifact@master
