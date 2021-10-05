@@ -85,4 +85,4 @@ jobs:
         appId: ${{secrets.FIREBASE_IOS_APPID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: testers
-        file: build/ios/Runner.ipa
+        file: build/ios/ipa/beer_app.ipa
