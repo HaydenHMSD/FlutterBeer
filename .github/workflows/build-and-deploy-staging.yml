@@ -75,7 +75,7 @@ jobs:
         path: build/ios/
     - name: print directory
       run: |
-        for entry in "build/ios"/*
+        for entry in "build/ios/ipa"/*
         do
           echo "$entry"
         done
