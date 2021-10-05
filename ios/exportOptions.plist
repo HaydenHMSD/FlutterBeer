@@ -4,5 +4,7 @@
 <dict>
   <key>method</key>
   <string>ad-hoc</string>
+  <key>teamID</key>
+    <string>Q5SWPQD6K4</string>
 </dict>
 </plist>
