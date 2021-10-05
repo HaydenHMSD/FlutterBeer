@@ -52,7 +52,7 @@ jobs:
         do
           echo "$entry"
         done
-    - run: flutter build ipa --release --export-options-plist=ios/export_options.plist
+    - run: flutter build ipa --release --export-options-plist=ios/exportOptions.plist
     - name: Upload iPA
       uses: actions/upload-artifact@master
       with:
