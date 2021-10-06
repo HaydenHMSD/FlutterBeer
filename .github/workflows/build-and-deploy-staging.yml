@@ -1,11 +1,11 @@
-name: GitHub Actions Demo
+name: Build and deploy
 on: 
   push:
     branches:
-    - feature/*
+    - develop
 jobs:
   build_ios:
-    name: build and deploy
+    name: Build for deployment
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -58,6 +58,13 @@ jobs:
       with:
         name: ios-build
         path: build/ios
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
+    - run: gitleaks -p=. -v
   beta_ios:
     name: Upload iOS Beta to Firebase App Distribution
     needs: [build_ios]
