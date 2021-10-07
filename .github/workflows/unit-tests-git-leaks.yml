@@ -28,3 +28,4 @@ jobs:
         flutter-version: ${{ env.flutter_version }}
     - run: flutter pub get
     - run: flutter test
+
