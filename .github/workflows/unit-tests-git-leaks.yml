@@ -13,7 +13,7 @@ jobs:
     steps:
     - run: mkdir -p foo/bar/faz/beer/
     - run: | 
-        if [ -d "/foo/bar/faz/beer/" ] then
+        if [ -d "/foo/bar/faz/beer/" ] ; then
         echo "Directory foo/bar/faz/beer/ exists."
         fi
   gitleaks:
