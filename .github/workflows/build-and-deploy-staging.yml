@@ -2,7 +2,7 @@ name: Build and deploy
 on: 
   push:
     branches:
-    - develop
+    - feature
 jobs:
   build_ios:
     name: Build for deployment
@@ -12,9 +12,9 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - uses: subosito/flutter-action@v1
-      with:
-        flutter-version: '2.5.1'
+#     - uses: subosito/flutter-action@v1
+#       with:
+#         flutter-version: '2.5.1'
     - name: Install the Apple certificate and provisioning profile
       env:
         BUILD_CERTIFICATE_BASE64: ${{ secrets.CERTIFICATES_DISTRIBUTION }}
@@ -58,6 +58,11 @@ jobs:
       with:
         name: ios-build
         path: build/ios
+    - run: |
+        for entry in "~/Library/MobileDevice/Provisioning\ Profiles"/*
+        do
+          echo "$entry"
+        done
   gitleaks:
     runs-on: ubuntu-latest
     steps:
