@@ -71,7 +71,9 @@ jobs:
         do
           echo "$entry"
         done  
-      
+    - run: |
+        cd ~/Library/MobileDevice/Provisioning\ Profiles
+        ls
 #   gitleaks:
 #     runs-on: ubuntu-latest
 #     steps:
