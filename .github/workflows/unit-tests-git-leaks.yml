@@ -39,6 +39,39 @@ jobs:
         if test -f "$PLIST_FILE"; then
           echo "$PLIST_FILE exists."
         fi
+    - name: Install the Apple certificate and provisioning profile
+      env:
+        BUILD_CERTIFICATE_BASE64: ${{ secrets.CERTIFICATES_DISTRIBUTION }}
+        P12_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.STAGING_PROVISIONING_PROFILE_AD_HOC }}
+        KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        FB_INFO: ${{ secrets.STAGING_FIREBASE_INFO }}
+      
+      run: |
+        # create variables
+        CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+        PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+        # import certificate and provisioning profile from secrets
+        echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
+        echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
+        # create temporary keychain
+        security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+        security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+        security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+        # import certificate to keychain
+        security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+        security list-keychain -d user -s $KEYCHAIN_PATH
+        # apply provisioning profile
+        mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+        cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+    - name: print directory
+      run: |
+        for entry in "~/Library/MobileDevice/Provisioning\ Profiles"/*
+        do
+          echo "$entry"
+        done  
+      
 #   gitleaks:
 #     runs-on: ubuntu-latest
 #     steps:
